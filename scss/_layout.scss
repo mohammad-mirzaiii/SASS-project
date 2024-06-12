@@ -1,0 +1,184 @@
+//navbar
+.nav {
+    position: relative;
+    z-index: 50;
+
+    .checkbox:checked ~ .navbar-navigation .navbar-navigation__left {
+        left: 0;
+    }
+    .checkbox:checked ~ .navbar-navigation .navbar-navigation__right {
+        right: 0;
+    }
+    .checkbox:checked ~ .hamburger .checkbox-menu {
+        transform: rotateZ(90deg);
+    }
+    .checkbox:checked ~ .hamburger .hamburger-line__1 {
+        transform: rotateZ(-40deg);
+    }
+    .checkbox:checked ~ .hamburger .hamburger-line__2 {
+        opacity: 0;
+    }
+    .checkbox:checked ~ .hamburger .hamburger-line__3 {
+        transform: rotateZ(40deg);
+    }
+
+    .navbar-navigation {
+
+        &__left {
+            @include flexlayout;
+            width: 50vw;
+            height: 100vh;
+            background-color: $black-color;
+            position: fixed;
+            left: -50vw;
+            opacity: 0.8;
+            transition: left 1s cubic-bezier(1,0,0,1);
+
+            .navbar-menu {
+                list-style: none;
+
+                &__item {
+                    margin-top: 40px;
+                }
+
+                &__link {
+                    font-family: $font-dancingScript;
+                    font-size: 30px;
+                    color: $secondary-color;
+                    text-decoration: none;
+                    transition: all 0.5s;
+
+                    &:hover {
+                        color: $primary-color;
+                        letter-spacing: 2px;
+                    }
+                }
+            }
+        }
+
+        &__right {
+            width: 50vw;
+            height: 100vh;
+            background-color: $dark-color;
+            position: fixed;
+            right: -50vw;
+            opacity: 0.9;
+            transition: right 1s cubic-bezier(1,0,0,1);
+
+            .nav-img {
+                width: 50%;
+                position: absolute;
+                border-radius: 10px;
+                box-shadow: 0 15px 60px rgba($dark-color,  0.7);
+            }
+            .nav-img__1 {
+                top: 15%;
+                right: 15%;
+            }
+            .nav-img__2 {
+                top: 35%;
+                right: 25%;
+            }
+            .nav-img__3 {
+                top: 55%;
+                right: 35%;
+            }
+
+        }
+    }
+
+}
+
+//header
+.header {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(rgba($black-color,0.8),rgba($black-color,0.6)), url(../images/bg.jpeg), center, no-repeat;
+    background-size: cover;
+
+    &-brand {
+        @include flexlayout;
+       @include centering(15%);
+    }
+    @media screen and (max-width:768) {
+        .header-brand {
+            @include centering(30%);
+        }  
+    }
+     &-banner {
+        @include centering(55%);
+        text-align: center;
+    }
+}
+
+//main
+.main {
+    .about-us {
+        @include flexlayout;
+        height: 90vh;
+        padding: 60px;
+
+        &__left{
+            max-width: 60%;
+            text-align: center;
+
+            .stars {
+                color: $primary-color;
+                margin: 40px;
+            }
+            .star {
+                font-size: 16px;
+                margin-left: 8px;
+            }
+        }
+
+        &__right {
+            max-width: 40%;
+            
+
+            .about-us__img {
+                width: 100%;
+                opacity: 0.7;
+            }
+        }
+    }
+
+    .cards-wrapper {
+        @include flexlayout;
+        flex-wrap: wrap;
+    }
+}
+
+//footer
+.footer {
+    text-align: center;
+    height: 450px;
+
+    &-brand {
+        @include flexlayout;
+        margin-top: 60px;
+    }
+
+    .social-media {
+        margin-top: 60px
+    }
+    .social-media__list {
+        @include flexlayout;
+        gap: 40px;
+        list-style: none;
+    }
+    .social-media__link {
+        font-size: 80px;
+        color: $secondary-color;
+        &:hover {
+            color: $primary-color;
+        }
+    }
+    .copy-right {
+        color: $secondary-color;
+        font-size: 30px;
+        font-family: $font-josefinSans;
+        margin-top: 60px;
+    }
+}

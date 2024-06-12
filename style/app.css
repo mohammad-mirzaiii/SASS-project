@@ -1,0 +1,389 @@
+.card-img,
+.card-overlay,
+.hamburger .checkbox-menu {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #262626;
+  color: white;
+}
+
+.hamburger {
+  width: 40px;
+  height: 40px;
+  top: 10%;
+  left: 5%;
+  position: fixed;
+  z-index: 4;
+}
+.hamburger .checkbox-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+  transition: transform 0.7s;
+}
+.hamburger-line {
+  width: 100%;
+  height: 4px;
+  background-color: orange;
+  transition: all 0.5s 0.5s;
+  transform-origin: right;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+  width: 135px;
+  height: 135px;
+  color: orange;
+  border: 3px solid orange;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.header-brand__title {
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 50px;
+  font-family: "Nunito", sans-serif;
+  color: #bbb;
+}
+
+.header-brand__txt {
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: "Josefin Sans", sans-serif;
+  color: orange;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.header-banner__title,
+.about-us__title {
+  font-family: "Dancing Script", cursive;
+  font-size: 120px;
+  font-weight: 300;
+  color: #bbb;
+  text-align: center;
+}
+
+.header-banner__txt,
+.price,
+.food-name,
+.about-us__txt {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 50px;
+  font-weight: 300;
+  color: orange;
+  text-align: center;
+  margin: 40px;
+}
+
+.header-btn,
+.about-us__btn {
+  background-color: transparent;
+  border: 1px solid orange;
+  color: orange;
+  width: 170px;
+  height: 45px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 400ms;
+}
+.header-btn:hover,
+.about-us__btn:hover {
+  background-color: orange;
+  color: #000;
+}
+
+.about-us__title {
+  font-family: "Nunito", sans-serif;
+  color: orange;
+  font-size: 80px;
+}
+
+.about-us__txt {
+  color: #bbb;
+  font-size: 40px;
+}
+
+.about-us__desc {
+  color: #bbb;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  text-align: justify;
+}
+
+.card {
+  max-width: 33.3333%;
+  height: 30vw;
+  position: relative;
+  overflow: hidden;
+}
+.card:hover .card-overlay {
+  left: 0;
+}
+.card-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 0;
+  left: -100%;
+  position: absolute;
+  background-color: rgba(255, 165, 0, 0.4);
+  transition: left 0.5s;
+  color: white;
+  z-index: 10;
+}
+.card-img {
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.food-name {
+  color: white;
+  margin: 4px;
+}
+
+.price {
+  color: white;
+  font-size: 26px;
+  margin: 10px;
+}
+
+.card-overlay__btn {
+  width: 150px;
+  height: 40px;
+  border-radius: 26px;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid orange;
+  cursor: pointer;
+}
+
+.nav {
+  position: relative;
+  z-index: 50;
+}
+.nav .checkbox:checked ~ .navbar-navigation .navbar-navigation__left {
+  left: 0;
+}
+.nav .checkbox:checked ~ .navbar-navigation .navbar-navigation__right {
+  right: 0;
+}
+.nav .checkbox:checked ~ .hamburger .checkbox-menu {
+  transform: rotateZ(90deg);
+}
+.nav .checkbox:checked ~ .hamburger .hamburger-line__1 {
+  transform: rotateZ(-40deg);
+}
+.nav .checkbox:checked ~ .hamburger .hamburger-line__2 {
+  opacity: 0;
+}
+.nav .checkbox:checked ~ .hamburger .hamburger-line__3 {
+  transform: rotateZ(40deg);
+}
+.nav .navbar-navigation__left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 100vh;
+  background-color: #000;
+  position: fixed;
+  left: -50vw;
+  opacity: 0.8;
+  transition: left 1s cubic-bezier(1, 0, 0, 1);
+}
+.nav .navbar-navigation__left .navbar-menu {
+  list-style: none;
+}
+.nav .navbar-navigation__left .navbar-menu__item {
+  margin-top: 40px;
+}
+.nav .navbar-navigation__left .navbar-menu__link {
+  font-family: "Dancing Script", cursive;
+  font-size: 30px;
+  color: #bbb;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+.nav .navbar-navigation__left .navbar-menu__link:hover {
+  color: orange;
+  letter-spacing: 2px;
+}
+.nav .navbar-navigation__right {
+  width: 50vw;
+  height: 100vh;
+  background-color: #262626;
+  position: fixed;
+  right: -50vw;
+  opacity: 0.9;
+  transition: right 1s cubic-bezier(1, 0, 0, 1);
+}
+.nav .navbar-navigation__right .nav-img {
+  width: 50%;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 0 15px 60px rgba(38, 38, 38, 0.7);
+}
+.nav .navbar-navigation__right .nav-img__1 {
+  top: 15%;
+  right: 15%;
+}
+.nav .navbar-navigation__right .nav-img__2 {
+  top: 35%;
+  right: 25%;
+}
+.nav .navbar-navigation__right .nav-img__3 {
+  top: 55%;
+  right: 35%;
+}
+
+.header {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)),
+    url(../images/bg.jpeg), center, no-repeat;
+  background-size: cover;
+}
+.header-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.header-banner {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.main .about-us {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  padding: 60px;
+}
+.main .about-us__left {
+  max-width: 60%;
+  text-align: center;
+}
+.main .about-us__left .stars {
+  color: orange;
+  margin: 40px;
+}
+.main .about-us__left .star {
+  font-size: 16px;
+  margin-left: 8px;
+}
+.main .about-us__right {
+  max-width: 40%;
+}
+.main .about-us__right .about-us__img {
+  width: 100%;
+  opacity: 0.7;
+}
+.main .cards-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer {
+  text-align: center;
+  height: 450px;
+}
+.footer-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+.footer .social-media {
+  margin-top: 60px;
+}
+.footer .social-media__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+}
+.footer .social-media__link {
+  font-size: 80px;
+  color: #bbb;
+}
+.footer .social-media__link:hover {
+  color: orange;
+}
+.footer .copy-right {
+  color: #bbb;
+  font-size: 30px;
+  font-family: "Josefin Sans", sans-serif;
+  margin-top: 60px;
+}
+@media screen and (max-width: 768px) {
+  .header .header-brand {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .header-brand__title {
+    font-size: 50px;
+  }
+  .header-banner__title{
+    font-size: 80px;
+  }
+  .header-banner__txt {
+    font-size: 34px;
+  }
+}
+@media  screen and (max-width: 576px) {
+  .logo {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  .header-brand__title {
+    font-size: 40px;
+  }
+  .header-banner__title{
+    font-size: 60px;
+  }
+  .header-banner__txt {
+    font-size: 30px;
+  }
+  .footer .social-media__list {
+    gap: 14px;
+  }
+}
